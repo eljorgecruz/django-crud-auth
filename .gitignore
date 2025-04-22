@@ -1,0 +1,45 @@
+# Entorno virtual (venv o env)
+venv/
+env/
+.env/
+
+# Archivos de configuración sensible
+*.env
+.env.local
+.env.prod
+secrets.json
+config.py
+
+# Base de datos SQLite local (común en desarrollo)
+*.sqlite3
+*.db
+*.db-journal
+
+# Archivos de configuración de Django (si usas settings separados)
+settings/local.py
+settings/dev.py
+
+# Archivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos generados por Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+*.pot
+
+# Archivos estáticos y media (pueden regenerarse)
+staticfiles/
+media/
+
+# Archivos de entorno y dependencias (si usas Pipenv/Poetry)
+Pipfile.lock
+poetry.lock
+.python-version
+
+# Otros
+.DS_Store
