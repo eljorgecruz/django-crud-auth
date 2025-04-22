@@ -11,7 +11,11 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/tasks">Task List</a></li>
-            <li><a href="/signup">Sign up</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/signup">Sign up</a></li>
+            {% endif %}
         </ul>
     
     {% block content %}
