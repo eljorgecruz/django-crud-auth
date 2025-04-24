@@ -40,6 +40,12 @@ def tasks(request):
             'tasks': Tasks
     })
 
+def completed_tasks(request):
+    Tasks = Task.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-datecompleted')
+    return render(request, 'tasks.html', {
+            'tasks': Tasks
+    })
+
 def create_task(request):
 
     if request.method == 'GET':
