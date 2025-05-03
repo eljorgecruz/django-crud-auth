@@ -2,23 +2,30 @@
 
 {% block content %}
 
-<h1>Tasks</h1>
-
-<ul>
-    {% for Task in tasks %}
-        <a href="{% url 'task_detail' Task.id %}">
-            {% if task.important %}
-                <strong>{{ Task.title }}</strong>
-            {% else %}
-                {{ Task.title }}
-            {% endif %}
-            <p>{{ Task.description }}</p>
-            <p>{{ Task.user.username }}</p>
-            <p>{{ Task.datecompleted|date:'M j Y:i' }}</p>
-            <p>{{ Task.important }}</p>
-        </a>
-
-    {% endfor %}
-</ul>
-
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="text-center display-4 py-4">Tasks Pending</h1>
+  
+        <div class="list-group">
+          {% for Task in tasks %}
+            <a href="{% url 'task_detail' Task.id %}" class="list-group-item list-group-item-action mb-2 shadow-sm">
+              <div class="d-flex justify-content-between">
+                {% if Task.important %}
+                  <h4 class="fw-bold text-success mb-1">{{ Task.title }}</h4>
+                {% else %}
+                  <h4 class="fw-bold text-dark mb-1">{{ Task.title }}</h4>
+                {% endif %}
+                <small class="text-muted">{{ Task.user.username }}</small>
+              </div>
+              <p class="mb-1">{{ Task.description }}</p>
+              <p>{{ Task.datecompleted|date:'M j Y:i' }}</p>
+              <p>{{ Task.important }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+</div>
+  
 {% endblock %}
